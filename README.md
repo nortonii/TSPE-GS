@@ -6,8 +6,6 @@
 - **Frameworks**: PyTorch, CUDA
 - **Typical tasks**: 训练、评估、网格提取（mesh extraction）、在 DTU / BlendedMVS 等数据集上的实验复现
 
-（如果你有正式论文标题 / 摘要，可以告诉我，我再帮你替换本段介绍。）
-
 ---
 
 ## 1. 环境配置（Environment）
@@ -126,14 +124,12 @@ bash runbmvsmesh.sh
 
 上述脚本会**自动运行完整实验流程**，包括训练和评估，并在结束时**输出最终的精度指标**（如 PSNR / 准确率等，具体见 `metric.py` 与各 `*_eval` 目录下的脚本）。
 
-你也可以直接调用 Python 脚本，例如：
+你也可以直接调用 Python 脚本，例如（根据你的实际参数进行替换）：
 
 ```bash
-python train.py --config <your_config>  # 若实现了 argparse 参数接口
-python render.py --scene <scene_path>   # 渲染某个场景
+python train.py --config <your_config>
+python render.py --scene <scene_path>
 ```
-
-（如果你希望我根据具体参数自动生成命令示例，可以告诉我你计划使用的场景 / 配置文件。）
 
 ---
 
