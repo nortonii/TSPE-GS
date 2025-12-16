@@ -40,7 +40,7 @@ export CUDA_VISIBLE_DEVICES=0
 
 ## 3. 数据准备（Datasets）
 
-本仓库包含对多种数据集的支持（从脚本名可见，如 `runbmvs*.sh`, `rundtu*.sh` 等）。典型数据集包括：
+典型数据集包括：
 
 - **DTU**: 经典多视图 3D 重建数据集  
 - **BlendedMVS / MVS** 系列：多视图立体重建数据集  
