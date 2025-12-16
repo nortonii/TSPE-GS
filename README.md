@@ -81,7 +81,7 @@ export CUDA_VISIBLE_DEVICES=0
 - `scene/colmap_loader.py`
 - `scene/dataset_readers.py`
 
-请根据你当前的数据路径调整对应脚本中的 `source_path` 或配置（如有单独的配置文件 / 参数）。
+请根据你当前的数据路径调整对应脚本中的 `source_path` 或相关配置。
 
 ---
 
@@ -156,18 +156,18 @@ python render.py --scene <scene_path>
 
 ## 6. 引用（Citation）
 
-如果你在学术工作中使用了本仓库，请引用对应的论文和/或原始 RaDe-GS / TSPE 工作。示例格式如下（请用你的真实 BibTeX 替换）：
+如果你在学术工作中使用了本仓库，请引用对应的论文和/或原始 RaDe-GS / TSPE 工作，例如：
 
 ```bibtex
-@article{your_tspe_gs_paper,
-  title   = {TSPE-GS: ...},
-  author  = {Your Name and Others},
-  journal = {...},
+@article{tspe_gs,
+  title   = {TSPE-GS},
+  author  = {Author et al.},
+  journal = {Journal/Conference},
   year    = {2025}
 }
 ```
 
-如有 RaDe-GS / TSPE / 3D Gaussian Splatting 等上游方法的引用需求，也请一并加入。
+请同时引用 RaDe-GS、TSPE、3D Gaussian Splatting 等相关上游工作。
 
 ---
 
@@ -180,4 +180,4 @@ python render.py --scene <scene_path>
 - **TSPE** 相关代码与论文
 - 本仓库所使用的第三方库与子模块（如 `diff-gaussian-rasterization`, `simple-knn` 等）
 
-如有遗漏或需要更精确的致谢内容，可以把你希望写入的致谢信息发给我，我可以帮你进一步润色。
+后续版本中会进一步补充和完善致谢列表。
