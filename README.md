@@ -23,35 +23,12 @@ conda activate tspe-gs
 pip install -r requirements.txt
 ```
 
-`requirements.txt` 当前包含：
-
-- open3d  
-- trimesh  
-- scikit-image  
-- opencv-python  
-- plyfile  
-- tqdm  
-
-此外，本仓库依赖以下子模块（在 `submodules/` 下），请确保在克隆仓库时拉取子模块：
-
-```bash
-git clone --recursive https://github.com/nortonii/TSPE-GS.git
-cd TSPE-GS
-```
-
-如果你已经克隆过但没有子模块，可以执行：
-
-```bash
-git submodule update --init --recursive
-```
-
 ---
 
 ## 2. 硬件要求（Hardware）
 
 - **GPU**: 至少 1 块支持 CUDA 的 GPU（建议 12GB 显存或更高）
-- **CUDA**: 已正确安装 CUDA 与对应版本的驱动
-- **内存**: 16GB+ 推荐（取决于数据集规模）
+- **CUDA**: 已正确安装 CUDA 为11.8
 
 训练脚本中会使用 `nvidia-smi` 查询显存占用，并设置 `CUDA_VISIBLE_DEVICES`；若需要使用其他 GPU，可直接修改 `train.py` 中对应代码或在外部设置环境变量：
 
@@ -69,21 +46,6 @@ export CUDA_VISIBLE_DEVICES=0
 - **BlendedMVS / MVS** 系列：多视图立体重建数据集  
 - 其它自定义场景（参见 `scene/` 与 `eval/` 目录）
 
-### 3.1 数据组织格式
-
-通常需要：
-
-- 已经过 COLMAP 或类似 SfM 工具处理得到的相机参数 / 稀疏点云  
-- 逐视角的图像序列  
-
-数据加载逻辑主要位于：
-
-- `scene/colmap_loader.py`
-- `scene/dataset_readers.py`
-
-请根据你当前的数据路径调整对应脚本中的 `source_path` 或相关配置。
-
----
 
 ## 4. 训练与评估（Training & Evaluation）
 
@@ -135,28 +97,10 @@ python render.py --scene <scene_path>
 
 ## 5. 结果示例（Example Outputs）
 
-项目中包含若干可视化脚本和工具：
-
-- 网格提取相关脚本：如 `mesh_extract.py`, `mesh_extract_opa.py` 及其变体
-- 深度 / 法线可视化：通过 `utils/vis_utils.py` 和 `utils/image_utils.py` 中的工具
-
-训练与评估完成后，你可以获得：
-
-- 渲染图像 / 视频
-- 重建网格（如 `.ply` 文件，示例：`poisson_mesh.ply`）
-- 定量指标（PSNR / 其他评测指标）
-
-你可以在 README 中插入你自己的结果图，例如：
-
-```markdown
-![Reconstruction Example](./hist.png)
-```
-
 ---
 
 ## 6. 引用（Citation）
 
-如果你在学术工作中使用了本仓库，请引用对应的论文和/或原始 RaDe-GS / TSPE 工作，例如：
 
 ```bibtex
 @article{tspe_gs,
@@ -167,8 +111,6 @@ python render.py --scene <scene_path>
 }
 ```
 
-请同时引用 RaDe-GS、TSPE、3D Gaussian Splatting 等相关上游工作。
-
 ---
 
 ## 7. 致谢（Acknowledgments）
@@ -177,7 +119,3 @@ python render.py --scene <scene_path>
 
 - **3D Gaussian Splatting**（原始高斯溅射代码实现）
 - **RaDe-GS** 相关代码与论文
-- **TSPE** 相关代码与论文
-- 本仓库所使用的第三方库与子模块（如 `diff-gaussian-rasterization`, `simple-knn` 等）
-
-后续版本中会进一步补充和完善致谢列表。
